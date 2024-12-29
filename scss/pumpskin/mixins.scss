@@ -1,0 +1,45 @@
+/* BOUTTONS */
+@mixin btn($color,$bg-color,$bd-color:transparent,$w-border:1px,$radius:0px) {
+  background: $color;
+  color: $bg-color;
+  border: $w-border solid $bd-color;
+  border-radius: $radius;
+
+  &:hover,
+  &:active {
+    color: $color;
+    background: $bg-color;
+    border: $w-border solid $bd-color;
+  }
+}
+
+/* BACKGROUND  */
+@mixin bg($bg_color:transparent,$size:cover,$repeat:no-repeat,$position:center center) {
+  background: $bg_color;
+  background-size: $size;
+  background-repeat: $repeat;
+  background-position: $position;
+}
+
+/* TRANSITION */
+@mixin transition($property:all,$duration:.7s,$timing:ease,$delay:0) {
+  transition-property: $property;
+  transition-duration: $duration;
+  transition-timing-function: $timing;
+  transition-delay: $delay;
+}
+
+.transition {
+  @include transition();
+}
+
+/* OMBRE */
+@mixin shadow($params:0px 0px 3px #666) {
+  box-shadow: $params;
+  -webkit-box-shadow: $params;
+  -moz-box-shadow: $params;
+}
+
+.shadow {
+  @include shadow();
+}

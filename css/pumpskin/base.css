@@ -1,0 +1,2 @@
+*,*::after,*::before{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}body{font-size:16px;overflow-x:hidden}.block{display:block}.inline{display:inline}.inlineBlock{display:inline-block}.none{display:none}.relative{position:relative}.absolute{position:absolute}.fixed{position:fixed}.visible{visibility:visible}.invisible{visibility:hidden}
+/*# sourceMappingURL=base.css.map */

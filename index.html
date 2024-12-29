@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9,user-scalable=no">
+  <title>Is Wordpress ?</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Est-ce un Wordpress ?">
+  <meta name="robots" content="all">
+  <meta name="author" content="Merlin Vandenhulle">
+  <!--Balises OG-->
+  <meta property="og:title" content="Is Wordpress ?">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://is-wp.lintermediaire.be">
+  <meta property="og:image" content="https://lintermediaire.be/wp-content/uploads/2021/06/wordpress-589121_960_720.jpg">
+  <!---->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+  <main class="main">
+    <section class="container container--md">
+      <form id="is_wp" method="post" action="#" class="flex flex-center">
+        <div class="form_item">
+          <h2>is_wp()</h2>
+        </div>
+        <div class="form_item">
+          <a href="#" class="terms terms--auto js_test">https://lintermediaire.be</a>
+          <a href="#" class="terms terms--auto js_test">https://wpchannel.com</a>
+          <a href="#" class="terms terms--auto js_test">https://www.wppourlesnuls.com</a>
+        </div>
+        <div class="flex flex-center form_item">
+          <label for="url" class="form_item_label">Url</label>
+          <input id="url" class="form_item_input js_is_wp_url" name="is_wp_url" placeholder="https://yoursite.be"  type="url" value="https://lintermediaire.be/">
+        </div>
+        <div class="form_item">
+          <button data-form="is_wp" class="btn js_submit" type="submit">Envoyer</button>
+        </div>
+      </form>
+    </section>
+    <hr>
+    <section class="msg">
+      <div class="none error message js_url_error">
+        <p>Your url is no conform</p>
+      </div>
+
+      <div class="none error message js_api_error">
+        <p>Error API WORDPRESS</p>
+      </div>
+
+      <div class="none success message js_url_success">
+        <p>Success !</p>
+      </div>
+    </section>
+    <section id="archives" class="container container--lg flex flex-row js_data"></section>
+    <section>
+      <p class="center">
+        Réalisé par <a class="link" target="_blank" title="L'intermédiaire.be" href="https://lintermediaire.be">l'intermédiare.be</a>
+      </p>
+    </section>
+  </main>
+  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

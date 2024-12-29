@@ -1,0 +1,267 @@
+/* FLEX BOXES */
+
+/* type */
+@mixin flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin inline-flex {
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.flex {
+  @include flex;
+}
+
+.inlineFlex {
+  @include inline-flex;
+}
+
+/* direction */
+@mixin flex-direction($value: row) {
+  @if $value == row-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -moz-box-orient: horizontal;
+  } @else if $value == column {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
+  } @else if $value == column-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -moz-box-orient: vertical;
+  } @else {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -moz-box-orient: horizontal;
+  }
+  -webkit-flex-direction: $value;
+  -ms-flex-direction: $value;
+  flex-direction: $value;
+}
+
+/* direction */
+.row {
+  @include flex-direction(row);
+}
+
+.row_reverse {
+  @include flex-direction(row-reverse) ;
+}
+
+.column {
+  @include flex-direction(column);
+}
+
+.column_reverse {
+  @include flex-direction(column-reverse);
+}
+
+/* wrao */
+@mixin flex-wrap($value: nowrap) {
+  -webkit-flex-wrap: $value;
+  @if $value == nowrap {
+    -ms-flex-wrap: none;
+  } @else {
+    -ms-flex-wrap: $value;
+  }
+  flex-wrap: $value;
+}
+
+.wrap {
+  @include flex-wrap(wrap)
+}
+
+.wrap_reverse {
+  @include flex-wrap(wrap-reverse);
+}
+
+.nowrap {
+  @include flex-wrap();
+}
+
+/* justify */
+@mixin justify-content($value: flex-start) {
+  @if $value == flex-start {
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    -ms-flex-pack: start;
+  } @else if $value == flex-end {
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    -ms-flex-pack: end;
+  } @else if $value == space-between {
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+  } @else if $value == space-around {
+    -ms-flex-pack: distribute;
+  } @else {
+    -webkit-box-pack: $value;
+    -moz-box-pack: $value;
+    -ms-flex-pack: $value;
+  }
+  -webkit-justify-content: $value;
+  justify-content: $value;
+}
+
+.justify_start {
+  @include justify-content(flex-start);
+}
+
+.justify_between {
+  @include justify-content(space-between);
+}
+
+.justify_center {
+  @include justify-content(center);
+}
+
+.justify_around {
+  @include justify-content(space-around);
+}
+
+.justify_end {
+  @include justify-content(flex-end);
+}
+
+/* items */
+@mixin align-items($value: stretch) {
+  @if $value == flex-start {
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+  } @else if $value == flex-end {
+    -webkit-box-align: end;
+    -moz-box-align: end;
+    -ms-flex-align: end;
+  } @else {
+    -webkit-box-align: $value;
+    -moz-box-align: $value;
+    -ms-flex-align: $value;
+  }
+  -webkit-align-items: $value;
+  align-items: $value;
+}
+
+.items_start {
+  @include align-items(flex-start);
+}
+
+.items_stretch {
+  @include align-items(stretch);
+}
+
+.items_center {
+  @include align-items(center);
+}
+
+.items_end {
+  @include align-items(flex-end);
+}
+
+.items_baseline {
+  @include align-items(baseline);
+}
+
+/* content */
+@mixin align-content($value: stretch) {
+  -webkit-align-content: $value;
+  @if $value == flex-start {
+    -ms-flex-line-pack: start;
+  } @else if $value == flex-end {
+    -ms-flex-line-pack: end;
+  } @else {
+    -ms-flex-line-pack: $value;
+  }
+  align-content: $value;
+}
+
+.content_start {
+  @include align-content(flex-start);
+}
+
+.content_center {
+  @include align-content(center);
+}
+
+.content_stretch {
+  @include align-content(stretch);
+}
+
+.content_end {
+  @include align-content(flex-end);
+}
+
+.content_around {
+  @include align-content(space-around);
+}
+
+.content_between {
+  @include align-content(space-between);
+}
+
+/* align */
+@mixin align-self($value: auto) {
+  -webkit-align-self: $value;
+  @if $value == flex-start {
+    -ms-flex-item-align: start;
+  } @else if $value == flex-end {
+    -ms-flex-item-align: end;
+  } @else {
+    -ms-flex-item-align: $value;
+  }
+  align-self: $value;
+}
+
+.self_start {
+  @include align-self(flex-start);
+}
+
+.self_stretch {
+  @include align-self(stretch);
+}
+
+.self_end {
+  @include align-self(flex-end);
+}
+
+.self_baseline {
+  @include align-self(baseline);
+}
+
+.self_center {
+  @include align-self(center);
+}
+
+.self_stretch {
+  @include align-self(stretch);
+}
+
+/* order */
+@mixin order($int: 0) {
+  -webkit-box-ordinal-group: $int + 1;
+  -moz-box-ordinal-group: $int + 1;
+  -webkit-order: $int;
+  -ms-flex-order: $int;
+  order: $int;
+}
+
+$orders: "1","2","3","4","5","6","7","8","9","10","11","12";
+
+@each $order in $orders {
+  .flex_order_#{$order} { @include order(#{$order}) }
+}
